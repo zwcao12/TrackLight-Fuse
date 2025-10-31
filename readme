@@ -1,1 +1,13 @@
 Lightweight unsupervised RGBD track defect detection
+
+Installing:
+
+pip install -r requirements.txt
+
+Training:
+
+python train.py
+
+Inferencing:
+
+pyhton inference.py
