@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 from models.exact_features import MultimodalFeatures, ReconstrFeatures
 from models.dataset import get_data_loader
-from models.backbone_models import FeatureProjectionMLP, FeatureProjectionConv
+from models.backbone_models import FeatureProjectionConv
 from utils.metrics_utils import calculate_au_pro
 from sklearn.metrics import roc_auc_score
 import torch.nn.functional as F
@@ -36,8 +36,6 @@ def infer_CFM(args):
     feature_extractor = MultimodalFeatures()
 
     """ Model instantiation. """
-    # CFM_2Dto3D = FeatureProjectionMLP(in_features=256, out_features=128)
-    # CFM_3Dto2D = FeatureProjectionMLP(in_features=128, out_features=256)
 
     CFM_2Dto3D = FeatureProjectionConv(in_channels=256, out_channels=128)
     CFM_3Dto2D = FeatureProjectionConv(in_channels=128, out_channels=256)
@@ -267,7 +265,7 @@ if __name__ == '__main__':
     parser.add_argument('--quantitative_folder', default = './results/quantitatives/21',type= str,
                         help = 'Path to the folder in which to save the quantitatives.')
     
-    parser.add_argument('--epochs_no', default = 170, type = int,
+    parser.add_argument('--epochs_no', default = 70, type = int,
                         help = 'Number of epochs to train the CFMs.')
 
     parser.add_argument('--batch_size', default = 4, type = int,
