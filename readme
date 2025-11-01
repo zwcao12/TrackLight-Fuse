@@ -10,4 +10,4 @@ python train.py
 
 Inferencing:
 
-pyhton inference.py
+python inference.py
